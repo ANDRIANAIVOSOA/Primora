@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <entry>true</entry>
+  <entry>200</entry>
+  <entry><![CDATA[Success]]></entry>
+  <entry>
+    <entry>
+      <entry>
+        <id><![CDATA[4f468b96-a96b-495d-8067-d14a0bed5a5f]]></id>
+        <description xsi:nil="true"/>
+      </entry>
+      <entry>
+        <id><![CDATA[52a04e68-2aa7-4566-ad94-d1bff4bf1833]]></id>
+        <description><![CDATA[seconde code d accès by fenitra]]></description>
+      </entry>
+      <entry>
+        <id><![CDATA[5f7e20b7-062c-40c3-bf46-6bcc5149e7aa]]></id>
+        <description><![CDATA[k 25]]></description>
+      </entry>
+      <entry>
+        <id><![CDATA[77510e6f-905c-40ca-946b-d404cffa7033]]></id>
+        <description xsi:nil="true"/>
+      </entry>
+      <entry>
+        <id><![CDATA[8980d497-bcbc-4d0b-b468-c04ec3db7758]]></id>
+        <description><![CDATA[code Generer voalohany by fenitra]]></description>
+      </entry>
+      <entry>
+        <id><![CDATA[911647f7-1ea3-4672-bf05-b89a319364ab]]></id>
+        <description><![CDATA[SUPER ADMIN]]></description>
+      </entry>
+      <entry>
+        <id><![CDATA[f80e9559-6718-42da-aecf-6e8fee415a2b]]></id>
+        <description><![CDATA[quatrième code by k 13 :D]]></description>
+      </entry>
+    </entry>
+  </entry>
+</result>

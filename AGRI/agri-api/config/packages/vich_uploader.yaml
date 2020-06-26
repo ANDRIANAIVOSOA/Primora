@@ -1,0 +1,10 @@
+parameters:
+    app.path.agri_images: /uploads
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        agri_images:
+            uri_prefix:         '%app.path.agri_images%'
+            upload_destination: '%kernel.root_dir%/../public%app.path.agri_images%'

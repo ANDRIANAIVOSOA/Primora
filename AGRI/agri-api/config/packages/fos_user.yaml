@@ -1,0 +1,18 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "noreplay@passion4humanity.com"
+        sender_name: "noreplay@passion4humanity.com"
+    registration:
+        form:
+            type: App\Form\RegistrationType
+    service:
+        token_generator:        fos_user.util.token_generator.default
+    resetting:
+        retry_ttl: 7200
+        token_ttl: 86400
+    #resetting:
+    #    email:
+    #        template:   email/password_resetting.email.twig
