@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>COMMUNICATION PAYPAL</title>
+<link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap-theme.min.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{asset('css/comment.css')}}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user">{{app.user.username|upper}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{path('homepage')}}">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropbtn">Produits</button>
+                <div class="dropdown-content">
+                 <b> <a  href="{{path('tous_voiture')}}">Voiture</a>
+                  <a  href="{{path('tous_chaussure')}}">Chaussure</a>
+                  <a  href="{{path('tous_vetement')}}">Vetement</a></b>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('fos_user_security_logout')}}" style="color:white">Déconnexion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<div class="container">
+
+	<div class="page-header">
+    	<h1 class="h2" style="margin-top:80px">Message. / <a class="btn btn-default" href="{{path('new_message')}}"> <span class="glyphicon glyphicon-plus"></span> &nbsp; Nouveau message </a></h1> 
+    </div>
+    
+<br />
+
+<div class="row">
+
+
+    {% for message in mess %}
+    
+			<div class="col-sm-12">
+				<p class="page-header">&nbsp;</p>
+            
+                <b>{{message.proprietaire}}</b><br> 
+				    {{message.message}}
+                    
+
+				<p class="page-header">
+				<span><br>
+				<a class="btn btn-info" href="{{path('ajout_message', {'id':message.id})}}" title="click for edit" onclick="return confirm('sure to repondre ?')"><span class="glyphicon glyphicon-edit"></span> Repondre</a> 
+				<a class="btn btn-danger"  id="del" href="{{ path('sup_message', { 'id': message.id }) }}" title="click for delete"><span class="glyphicon glyphicon-remove-circle"></span> Supprimer</a>
+				</span>
+				</p>
+			</div>      
+        
+    {% endfor %}
+
+</div>	
+
+
+
+<div class="alert alert-info">
+    <strong>Communiquer !</strong> <a href=''>Client-Admin</a>!
+</div>
+
+</div>
+
+ <footer class="py-5 bg-dark">
+        <div class="row">
+            <div class="col-sm-4">
+                <b>Listes des produits :</b>
+                <p><a href="{{path('tous_chaussure')}}">Chaussure</a></p>
+                <p><a href="{{path('tous_voiture')}}">Voiture</a></p>
+                <p><a href="{{path('tous_vetement')}}">Vetement</a></p>
+                <p class="m-0 text-center text-white">Payment par:<strong>
+                <a href="#" style="color:black">Stripe</a></strong>&nbsp; est seulement  disponible </p>
+            </div>
+            <div class="col-sm-4">
+                 <p><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="color:white"></i>-Facebook.com</a></p>
+                <p><a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" style="color:white"></i>-Twitter.mg</a></p>
+                <p><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true" style="color:white"></i>-Youtube.com</a></p>
+            </div>
+            <div class="col-sm-4">
+                <div class="container">
+                     <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+                </div> 
+            </div>
+        </div>
+    </footer>
+
+<script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('js/comment.js')}}"></script>
+
+</body>
+</html>

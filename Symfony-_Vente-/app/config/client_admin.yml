@@ -1,0 +1,30 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Client', label: 'Clients', params:{ action: 'list' }, icon: 'user' }
+
+    entities:
+        Client:
+            class: ClientBundle\Entity\Client
+            label: 'Client'
+            list:
+                actions: ['new', 'edit', 'show']
+                title: "Les Clients sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', base_path: 'uploads/image/products/' }
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'commande', label: 'Commande' }
+                    - { property: 'tel', label: 'Tel' }
+                   
+                    
+                    
+
+            new:
+                title: 'Création de Clients'
+                fields:
+                    - { property: 'imageFile', type: 'file'}
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'commande', label: 'Commande' }
+                    - { property: 'tel', label: 'Tel' }
+                    

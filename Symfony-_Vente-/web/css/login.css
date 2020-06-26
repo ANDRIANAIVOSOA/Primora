@@ -1,0 +1,96 @@
+body{
+    background: lightgray;
+    width:400px;
+    height:100px;
+}
+.wrapper{
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+}
+.form-signin{
+    max-width: 380px !important;
+    padding: 15px 35px 45px !important;
+    margin: 5% auto !important;
+    background-color: #fff !important;
+    border: 1 px solid rgba(0, 0, 0, 0.1) !important;
+
+}
+.form-signin-heading{
+    margin-bottom: 10px !important;
+}
+.checkbox{
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.form-control{
+    position:relative !important;
+    font-size: 16px !important;
+    height: auto !important;
+    padding: 10px !important;
+}
+input[type='text']{
+    margin-bottom: -1px !important;
+}
+
+input[type='password']{
+    margin-bottom:20px !important; 
+}
+input[type='submit']{
+   margin-left:5px !important;
+   background-color:blue !important;
+   margin-bottom:5px !important;
+}
+.alert{
+    text-align: center;
+    height: 50px;
+    background-color: red;
+    margin-top: 100px;
+    color: white;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropbtn {
+    background-color:transparent;
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 50%;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+
+.dropdown-content a:hover {background-color: transparent;}
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+.dropdown:hover .dropbtn {background-color: transparent;}
+

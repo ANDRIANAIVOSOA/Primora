@@ -1,0 +1,31 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Voiture', label: 'Voitures', params:{ action: 'list' }, icon: 'taxi' }
+
+    entities:
+        Voiture:
+            class: VoitureBundle\Entity\Voiture
+            label: 'Voiture'
+            list:
+                actions: ['new', 'edit', 'show']
+                title: "Les chaussures sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', base_path: 'uploads/image/products/'}
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'type', label: 'Type' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Proprietaire' }
+                   
+                    
+
+            new:
+                title: 'Création de voiture'
+                fields:
+                    - { property: 'imageFile', label: 'Photo', type: 'file' }
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'type', label: 'Type' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Proprietaire' }
+                   

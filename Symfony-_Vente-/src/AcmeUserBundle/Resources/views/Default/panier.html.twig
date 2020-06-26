@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PANIER EN LIGNE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href='{{asset("vendor/bootstrap/css/bootstrap.min.css")}}' rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='{{asset("css/shop-homepage.css")}}' rel="stylesheet">
+</head>
+
+ {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
+    {% set totalHT = 0 %}
+    
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"> {{app.user.username|upper}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{path('homepage')}}" style='font-size:15px'>Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+           <li class="nav-item" style="margin-left:10px">
+              <div class="dropdown" style="margin-top:12px">
+                <button class="dropbtn"> Produits</button>
+                <div class="dropdown-content">
+                 <b><a  href="{{path('tous_voiture')}}">Voiture</a>
+                  <a  href="{{path('tous_chaussure')}}">Chaussure</a>
+                  <a  href="{{path('tous_vetement')}}">Vetement</a></b>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item" style="margin-top:15px;margin-left:10px" >
+                <a href="{{path('fos_user_security_logout')}}" 
+                style="color:white;font-size:15px;text-decoration:none">Deconnexion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='span3'>
+            </div>
+            <div class='span9'>
+                <form>
+                    <table class='table table-striped table-hover' style='margin-top:80px' id="tb">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>References</th>
+                                <th>Libelle</th>
+                                <th>Quantité</th>
+                                <th>Prix unitaire</th>
+                                <th>Total HT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+      
+                            {% for prod in produit %}
+
+                            <tr>
+                            <form action="{{path('ajouter', {'id' : prod.id} )}}" method='get'>
+
+                                <td>
+                                  <img src="{{ asset('uploads/image/products/'~prod.image) }}" class="img-responsive" style="width:100%" alt="Image">
+                                </td>
+                                <td>
+                                    <select name='qte' class='span1' onChange='this.form.submit()' class='span1'>
+                                        
+                                        {% for i in 1..10 %}
+                                            <option value='{{ i }}' {% if i == panier[prod.id] %} selected='selected' {% endif %}>{{i}}</option>
+                                        {% endfor %}
+
+                                    </select>&nbsp;
+
+                                     <a href="{{path('supprimer', {'id': prod.id } ) }}">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+
+                                </td>
+                                <td>{{prod.libelle}}</td>
+                                <td>{{ prod.prix }}</td>
+                                <td>{{ prod.prix  * panier[prod.id] }} <i>fmg</i></td>
+                            </form>
+                            </tr>
+                            {% set totalHT = totalHT + (prod.prix * panier[prod.id]) %}
+                            
+
+
+                        {% endfor %}
+    
+                        </tbody>
+                    </table>
+                    <dl class='dl-horizontal pull-right'>
+                        <dt>Total HT : </dt>
+                        <dd><b>{{ totalHT }}</b> <i> fmg</i></dd>
+                        <dt>
+                            <a href="" class="btn btn-info btn-lg">
+                                <span class="glyphicon glyphicon-ok-sign"></span> 
+
+                            <form action="{{path('payer')}}" method="POST">
+                              <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_pF4TXg2cgm366d3bJqtR5a2N"
+                                data-currency='EUR'
+                                data-amount="{{totalHT}}"
+                                data-name="Stripe.com"
+                                data-description="Widget"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto"
+                                data-zip-code="true">
+                                
+                              </script>
+                            </form>
+                            </a>
+                        </dt>
+                     </dl>
+                </form>
+            </div>
+        </div>
+        <button><a href="{{path('pdf')}}">Imprimer</a></button>
+       <footer class="py-5 bg-dark" style='margin-top:150px'>
+        <div class="row">
+            <div class="col-sm-4">
+                <b>Listes des produits :</b>
+                <p><a href="{{path('tous_chaussure')}}">Chaussure</a></p>
+                <p><a href="{{path('tous_voiture')}}">Voiture</a></p>
+                <p><a href="{{path('tous_vetement')}}">Vetement</a></p>
+                <p class="m-0 text-center text-white">Payment par:<strong>
+                <a href="#" style="color:black">Stripe</a></strong>&nbsp; est seulement  disponible </p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="color:white"></i>-Facebook.com</a></p>
+                <p><a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" style="color:white"></i>-Twitter.mg</a></p>
+                <p><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true" style="color:white"></i>-Youtube.com</a></p>
+            </div>
+            <div class="col-sm-4">
+                <div class="container">
+                     <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+                </div> 
+            </div>
+        </div>
+    </footer>
+
+    {% endblock %}
+
+{% else %}
+{{render(url('fos_user_security_login'))}}
+{% endif %}
+
+</html>
+

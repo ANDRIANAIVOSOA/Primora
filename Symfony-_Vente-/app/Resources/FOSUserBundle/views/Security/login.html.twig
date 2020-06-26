@@ -1,0 +1,82 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel='stylesheet' href='{{ asset('css/login.css') }}' type='text/css'>
+{% endblock %}
+
+{% block body %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user">Utilisateur Pas connecté</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{path('homepage')}}">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropbtn">Produits</button>
+                <div class="dropdown-content">
+                 <b> <a  href="{{path('tous_voiture')}}">Voiture</a>
+                  <a  href="{{path('tous_chaussure')}}">Chaussure</a>
+                  <a  href="{{path('tous_vetement')}}">Vetement</a></b>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="{{path('fos_user_registration_register')}}" style="color:white">S'INSCRIRE</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+{% for flash_message in app.session.flashBag.get('info') %}
+    <div class="alert alert-success">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+    <div class='wrapper'>
+        <form action="{{path('fos_user_security_check')}}" method="post" class="form-signin">
+            <h2 class="form-signin-heading">Enregistrement de votre compte:</h2><br>
+
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+            <div class="form-group">
+                <input type='text' id='username' class='form-control' name='_username' value='{{last_username}}'
+                    placeholder="{{ 'security.login.username'| trans}}" required="required"
+                    autofocus="autofocus"/>
+            </div>
+            <br/><br/>
+            <div class="form-group">
+                <input type="password" id='password' class='form-control' 
+                placeholder='{{ "security.login.password"| trans}}' required='required' name="_password"/>
+            </div>
+
+            <input type='checkbox' id='remember_me' name='_remember_me'
+                value='on'/> Se souvenir de moi
+           
+
+            <input type='submit' id='_submit' class='btn btn_lg btn-primary btn-block' 
+                name='_submit' value="{{ 'security.login.submit'| trans}}"/>
+              
+            <div class="link_to_change">
+                <a href="{{path('fos_user_registration_register')}}">S'enregistrer</a>- 
+                <a href="{{path('fos_user_resetting_request')}}">Mot de passe oublié</a> 
+            </div>
+        </form>
+    </div>
+{% endblock %}

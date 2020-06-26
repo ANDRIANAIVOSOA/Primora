@@ -1,0 +1,161 @@
+acme_user_homepage:
+    path:     /
+    defaults: { _controller: AcmeUserBundle:Default:index }
+
+tous_prop:
+    path:     /tousprop
+    defaults: { _controller: ProprietaireBundle:Proprietaire:tous }
+
+tous_chaussure:
+    path:     /listechaussure
+    defaults: { _controller: ChaussureBundle:Chaussure:index }
+
+croissant:
+    path:    /ordrebasprix
+    defaults: { _controller: ChaussureBundle:Chaussure:Parcroissant }
+
+decroissant:
+    path:    /ordrehautprix
+    defaults: { _controller: ChaussureBundle:Chaussure:Pardecroissant }
+
+libelle:
+    path:    /libelle
+    defaults: { _controller: ChaussureBundle:Chaussure:Parlibelle }
+
+prix:
+    path:    /inferieurprix
+    defaults: { _controller: ChaussureBundle:Chaussure:Parprix }
+
+panier:
+    path:     /panier
+    defaults: { _controller: ChaussureBundle:Chaussure:panier }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: ChaussureBundle:Chaussure:ajouter }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: ChaussureBundle:Chaussure:supprimer }
+
+payer:
+    path:     /payer
+    defaults: { _controller: ChaussureBundle:Chaussure:Payer }
+
+
+tous_vetement:
+    path:     /listevetement
+    defaults: { _controller: VetementBundle:Vetement:index }
+
+vetem_libelle:
+    path:     /libellevetement
+    defaults: { _controller: VetementBundle:Vetement:Parlibelle }
+
+prix_vete:
+    path:     /basprixVetement
+    defaults: { _controller: VetementBundle:Vetement:Veteprix }
+
+vetem_decroissant:
+    path:     /decroissantvetement
+    defaults: { _controller: VetementBundle:Vetement:Pardecroissant }
+
+vetem_croissant:
+    path:     /Croissantvetement
+    defaults: { _controller: VetementBundle:Vetement:Parcroissant }
+
+tous_voiture:
+    path:     /listevoiture
+    defaults: { _controller: VoitureBundle:Voiture:index }
+
+croissant_voiture:
+    path:     /croissantvoiture
+    defaults: { _controller: VoitureBundle:Voiture:Parcroissant }
+
+decroissant_voiture:
+    path:     /decroissantvoiture
+    defaults: { _controller: VoitureBundle:Voiture:Pardecroissant }
+
+prix_voiture:
+    path:     /memeprix
+    defaults: { _controller: VoitureBundle:Voiture:Parprix }
+
+libelle_voiture:
+    path:     /memelibelle
+    defaults: { _controller: VoitureBundle:Voiture:Parlibelle }
+
+panier:
+    path:     /panier
+    defaults: { _controller: ChaussureBundle:Chaussure:panier }
+
+pdf:
+    path:     /pdf_imprimer
+    defaults: { _controller: ChaussureBundle:Chaussure:pdf }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: ChaussureBundle:Chaussure:ajouter }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: ChaussureBundle:Chaussure:supprimer }
+
+payer:
+    path:     /payer
+    defaults: { _controller: ChaussureBundle:Chaussure:Payer }
+
+panier_vete:
+    path:     /paniervete
+    defaults: { _controller: VetementBundle:Vetement:panier }
+
+ajouter_vete:
+    path:     /ajoutervete/{id}
+    defaults: { _controller: VetementBundle:Vetement:ajouter }
+
+supprimer_vete:
+    path:     /supprimervete/{id}
+    defaults: { _controller: VetementBundle:Vetement:supprimer }
+
+payer_vete:
+    path:     /payervete
+    defaults: { _controller: VetementBundle:Vetement:Payer }
+
+
+panier_voit:
+    path:     /paniervoiture
+    defaults: { _controller: VoitureBundle:Voiture:panier }
+
+ajouter_voit:
+    path:     /ajoutervoiture/{id}
+    defaults: { _controller: VoitureBundle:Voiture:ajouter }
+
+supprimer_voit:
+    path:     /supprimervoiture/{id}
+    defaults: { _controller: VoitureBundle:Voiture:supprimer }
+
+payer_voit:
+    path:     /payervoiture
+    defaults: { _controller: VoitureBundle:Voiture:Payer }
+
+new_message:
+    path:     /message/new
+    defaults: { _controller: CommentaireBundle:Commentaire:add }
+
+message:
+    path:     /message
+    defaults: { _controller: CommentaireBundle:Commentaire:index }
+
+sup_message:
+    path:     /deleted/{id}
+    defaults: { _controller: CommentaireBundle:Commentaire:sup }
+
+ajout_message:
+    path:     /ajoutMessage/{id}
+    defaults: { _controller: CommentaireBundle:Commentaire:ajout }
+
+edit_prop:
+    path:     /editproprie/{id}
+    defaults: { _controller: ProprietaireBundle:Proprietaire:edit }
+
+
+
+

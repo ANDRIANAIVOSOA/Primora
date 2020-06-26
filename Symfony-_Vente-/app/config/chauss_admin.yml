@@ -1,0 +1,34 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Chaussure', label: 'Chaussures', params:{ action: 'list' }, icon: 'tag' }
+
+    entities:
+        Chaussure:
+            class: ChaussureBundle\Entity\Chaussure
+            label: 'Chaussure'
+            list:
+                actions: ['new', 'edit', 'show']
+                title: "Les chaussure sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', label: 'Photo', base_path: 'uploads/image/products/' }
+                    - { property: 'libelle', label: 'Libelle' }
+                    - { property: 'marque', label: 'Marque' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Nom' }
+                    - { property: 'categorie', label: 'Categorie' }
+            new:
+                title: 'Création de chaussure'
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'libelle', label: 'Libelle' }
+                    - { property: 'marque', label: 'Marque' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Proprietaire' }
+                    - { property: 'categorie', label: 'Categorie' }
+                   
+                    
+
+
+    

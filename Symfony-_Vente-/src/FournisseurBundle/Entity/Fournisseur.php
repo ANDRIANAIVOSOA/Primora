@@ -1,0 +1,146 @@
+<?php
+
+namespace FournisseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+/**
+ * Fournisseur
+ *
+ * @ORM\Table(name="fournisseur")
+ * @ORM\Entity(repositoryClass="FournisseurBundle\Repository\FournisseurRepository")
+ * @vich\Uploadable
+ */
+class Fournisseur
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="commanderest", type="integer")
+     */
+    private $commanderest;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contacte", type="string", length=255)
+     */
+    private $contacte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+     /**
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set commanderest
+     *
+     * @param integer $commanderest
+     *
+     * @return Fournisseur
+     */
+    public function setCommanderest($commanderest)
+    {
+        $this->commanderest = $commanderest;
+
+        return $this;
+    }
+
+    /**
+     * Get commanderest
+     *
+     * @return int
+     */
+    public function getCommanderest()
+    {
+        return $this->commanderest;
+    }
+
+    /**
+     * Set contacte
+     *
+     * @param string $contacte
+     *
+     * @return Fournisseur
+     */
+    public function setContacte($contacte)
+    {
+        $this->contacte = $contacte;
+
+        return $this;
+    }
+
+    /**
+     * Get contacte
+     *
+     * @return string
+     */
+    public function getContacte()
+    {
+        return $this->contacte;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Fournisseur
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;        
+    }
+
+    public function getImageFile()
+    {    
+        return $this->imageFile;
+    }
+}

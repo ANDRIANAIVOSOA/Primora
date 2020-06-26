@@ -1,0 +1,10 @@
+<body>
+    {{ form_start(editform)}}
+    <label>PROPRIETAIRE</label><br>
+    {{ form_widget(editform.nom)}}<br>
+    {{ form_widget(editform.image)}}<br>
+    {{ form_widget(editform.contact)}}<br>
+    {{ form_widget(editform.datecreation)}}<br>
+        <button>Modifier</button>
+    {{ form_end(editform)}}
+</body>

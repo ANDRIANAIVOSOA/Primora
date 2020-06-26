@@ -1,0 +1,66 @@
+body {
+  background-color:#bbb;
+  color:#048;      
+  font-size: 12px;
+  line-height: 16px;
+}
+a { 
+  color: #028; 
+}
+h1 {
+  text-shadow: 4px 4px 5px #777;
+  color: #449;
+}
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    float: right;
+}
+
+input[type=number]{
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    float: right;
+}
+
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 800px;
+    margin-top: 10px;
+}
+
+.panel-body{
+  background-image: url(sar/ciah.jpg);
+  height: 800px;
+  width: 950px;
+ 
+}
+label{
+  margin-left: 800px;
+}
+.col-sm-4 b{
+  color: white;
+  margin-left: 30px;
+  text-decoration: underline;
+}
+.col-sm-4 p a{
+  color: white;
+  margin-left: 30px;
+  text-decoration: none;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ECOMMERCE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      margin-top:100px;
+    }
+  </style>
+</head>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"> {{ app.user.username|upper }}</a>
+        <a href="{{path('panier_vete')}}"><span class="glyphicon glyphicon-shopping-cart">Mon Panier</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{path('homepage')}}">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('tous_voiture')}}">Vetement</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('tous_chaussure')}}">Chaussure</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('tous_vetement')}}">Voiture</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('message')}}">Messagerie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<div class="container text-center" style='margin-top:90px'>    
+  <div class="row">
+    <div class="col-sm-3 well">
+      <div class="well">
+        <p><a href="#">Mon Profil</a></p>
+        <img src="image/a.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+      </div>
+      <div class="well">
+        <p><a href="#">Interests</a></p>
+        <p>
+          <span class="label label-default">News</span>
+          <span class="label label-primary">W3Schools</span>
+          <span class="label label-success">Labels</span>
+          <span class="label label-info">Football</span>
+          <span class="label label-warning">Gaming</span>
+          <span class="label label-danger">Friends</span>
+        </p>
+      </div>
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <p><strong>Ey!</strong></p>
+        On peut visualiser les différentes produits
+      </div>
+    </div>
+    <div class="col-sm-7">
+    
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <p contenteditable="true">Status: Feeling Blue</p>
+              <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>     
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {% for tout in proprie %}
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well">
+            <img src="{{ asset('uploads/image/products/'~tout.image) }}" alt="" class="img_circle" />
+            <button><a href="{{path('edit_prop', {'id':tout.id})}}">Modifier</a></button> 
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="well">
+            Nom:<p><b>{{ tout.nom }}</b></p>
+            Tel:<p><b>{{ tout.contact }}</b></p>
+            Date de création:<p><b>{{ tout.datecreation|date('m/D/Y') }}</b></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+      
+
+      
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <img src="image/5.jpg"  alt="">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            Nom:
+               <p><b>Sarah smith</b></p> 
+            Tel:
+            <p><b>015245386</b></p> 
+            Date de création:
+            <p><b>01/Wed/2016</b></p> 
+
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="col-sm-2 well">
+      <div class="thumbnail">
+        <p>Site de :</p>
+        <img src="image/paris.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Paris</strong></p>
+        <p>Fri. 27 November 2015</p>
+        <button class="btn btn-primary">Info</button>
+      </div>      
+      <div class="well">
+        <p><a href="{{path('fos_user_security_logout')}}">Déconnexion</a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Copyright &copy; Your Website 2018</p>
+</footer>
+
+</body>
+</html>

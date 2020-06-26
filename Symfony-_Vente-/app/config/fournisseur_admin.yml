@@ -1,0 +1,28 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Fournisseur', label: 'Fournisseurs', params:{ action: 'list' }, icon: 'user' }
+
+    entities:
+        Fournisseur:
+            class: FournisseurBundle\Entity\Fournisseur
+            label: 'Fournisseur'
+            list:
+                actions: ['new', 'edit', 'show']
+                title: "Les Fournisseurs sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', base_path: 'uploads/image/products/' }
+                    - { property: 'commanderest', label: 'Commande prop' }
+                    - { property: 'contacte', label: 'Contact' }
+                   
+                    
+                    
+
+            new:
+                title: 'Création de Fournisseur'
+                fields:
+                    - { property: 'imageFile', type: 'file'}
+                    - { property: 'commanderest', label: 'Reste' }
+                    - { property: 'contacte', label: 'Contact' }
+                    

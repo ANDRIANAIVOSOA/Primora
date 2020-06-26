@@ -1,0 +1,17 @@
+.col-sm-4 .para{
+    background-color: black;
+    border-radius: 10px;
+}
+.col-sm-9 b a{
+    color: black;  
+    padding-left: 10px;  
+}
+.col-sm-9 b a:hover{
+    background-color:white;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+}

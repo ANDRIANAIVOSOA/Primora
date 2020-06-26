@@ -1,0 +1,31 @@
+easy_admin:
+    design:
+        brand_color: 'red'
+        menu:
+            - { entity: 'Proprietaire', label: 'Proprietaires', params:{ action: 'list' }, icon: 'user' }
+
+    entities:
+        Proprietaire:
+            class: ProprietaireBundle\Entity\Proprietaire
+            label: 'Proprietaire'
+            list:
+                actions: ['new', 'edit', 'show']
+                title: "Les Proprietaires sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', base_path: 'uploads/image/products/' }
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'contact', label: 'Contact' }
+                    - { property: 'datecreation', label: 'Date de creation' }
+                   
+                    
+                    
+
+            new:
+                title: 'Création de Proprietaire'
+                fields:
+                    - { property: 'imageFile', type: 'file'}
+                    - { property: 'nom', label: 'Nom' }
+                    - { property: 'contact', label: 'Contact' }
+                    - { property: 'datecreation', label: 'Date de creation' }
+                    

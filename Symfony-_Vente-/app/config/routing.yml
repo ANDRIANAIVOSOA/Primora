@@ -1,0 +1,52 @@
+proprietaire:
+    resource: "@ProprietaireBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+client:
+    resource: "@ClientBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fournisseur:
+    resource: "@FournisseurBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+commentaire:
+    resource: "@CommentaireBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+chaussure:
+    resource: "@ChaussureBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+voiture:
+    resource: "@VoitureBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+vetement:
+    resource: "@VetementBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+acme_user:
+    resource: "@AcmeUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
+

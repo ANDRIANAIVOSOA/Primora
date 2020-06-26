@@ -1,0 +1,155 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}  
+    <link href="{{asset('css/index.css')}}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+      <div class="container-fluid" style="height: 500px;background-image: url(sar/bac.jpg)">
+          {% block content %}{% endblock %}<br><br>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2">
+      <img src="sar/logo.png">
+    </div>
+    <div class="col-sm-3"></div>
+
+  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <div class="col-sm-9"> 
+      <ul class="navbar navbar-default">
+        <b><h1 style="color: yellow">{{app.user.username|upper}} connecté</h1></b>
+        <b><a href="{{path('fos_user_security_logout')}}" >DECONNEXION</a></b>
+        <b><a href="{{path('homepage')}}" >ACCUEIL</a></b>
+        <b><a href="{{path('tous_vetement')}}" >VETEMENT</a></b>
+        <b><a href="{{path('tous_chaussure')}}" >CHAUSSURE</a></b>
+        <b><a href="{{path('tous_voiture')}}" >VOITURE</a></b>
+        <b><a href="{{path('message')}}" >MESSAGERIE</a></b>
+      </ul>
+    </div>
+  {% else %}
+    <div class="col-sm-9"> 
+      <ul class="navbar navbar-default">
+        <b><a href="{{path('homepage')}}">ACCUEIL</a></b>
+        <b><a href="{{path('tous_vetement')}}">VETEMENT</a></b>
+        <b><a href="{{path('tous_chaussure')}}">CHAUSSURE</a></b>
+        <b><a href="{{path('tous_voiture')}}">VOITURE</a></b>
+        <b><a href="{{path('message')}}">MESSAGERIE</a></b>
+        <b><a href="{{path('fos_user_security_login')}}">SE CONNECTER</a></b>
+        <b><a href="{{path('fos_user_registration_register')}}">S'INSCRIRE</a></b>
+      </ul>
+    </div>
+  {% endif %}
+
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><br><br><br><br><br>
+        <p  class='para'style="text-align: center;color: white">Visualiser nos differentes produits qui l'aime</p><br><br>
+        <h1 style="color:white">E-COMMERCE Pro.</h1><br><br>
+        <button type="button" class="btn btn-default" style="background-color: transparent;color: white;margin-left: 100px;">Savoir plus</button>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+    
+  </div><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-6">
+      <h2>Nouveau <b>Modèle</b> </h2><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor </p><br>
+      <p>in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui </p>
+      </div>
+      <div class="col-sm-5">
+      <img src="sar/veuy.png">
+      </div>
+    
+    </div>
+
+  </div>
+  <br><br>
+
+  <div class="container" style="background-color:lightgray">
+    <div class="row">
+      <div class="col-sm-5">
+      <img src="sar/ii.png" style="margin-left: 70px;margin-top: 50px">
+      </div>
+      <div class="col-sm-5"><br>
+      <h2>Bonne <b>Occasion</b> </h2><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor </p><br>
+      <p>in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui </p><br><br><br>
+      </div>
+      <div class="col-sm-2"></div>
+    
+    </div>
+  </div>
+  <br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+      
+      </div>
+      <div class="col-sm-4">
+      <h4><span class="glyphicon glyphicon-knight"></span>Remise -50%</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation  </p><br>
+
+      <h4><span class="glyphicon glyphicon-duplicate"></span>Offert gratuit</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation</p><br>
+
+      <h4> <span class="glyphicon glyphicon-star"></span>occasion</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation</p><br>
+      </div>
+      <div class="col-sm-4">
+      <h4><span class="glyphicon glyphicon-modal-window"></span>Articles de suivi</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation</p><br>
+
+      <h4><span class="glyphicon glyphicon-facetime-video"></span>Nombres de stock</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation</p><br>
+
+      <h4><span class="glyphicon glyphicon-camera"></span>Categories</h4>
+      <p>Consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation</p>
+      </div>
+      <div class="col-sm-2"></div>
+    
+    </div>
+  </div><br><br><br>
+
+  <div class="container" style="background-color:#9999ff">
+    <div class="row">
+      <div class="col-sm-2">
+      
+      </div>
+      <div class="col-sm-4"><br><br>
+     <h2>CATEGORIES DES PRODUITS:</h2>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+      </div>
+      <div class="col-sm-4"><br><br><br>
+        <img src="image/c.jpg" alt="">
+      </div>
+      <div class="col-sm-2"></div>
+    
+    </div>
+    <hr style="color: white;width: 800px">
+      <p style="color: white;text-align: center"> Escape by FreebiesXpress.Made In Moi-même</p>
+  </div>
+{% endblock %}

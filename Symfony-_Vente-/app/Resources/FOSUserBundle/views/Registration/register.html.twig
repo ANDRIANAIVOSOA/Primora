@@ -1,0 +1,93 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel='stylesheet' href='{{ asset('css/register.css') }}' type='text/css'>
+{% endblock %}
+
+{% block body %}
+
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user">Utilisateur Pas connecté</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{path('homepage')}}">Accueil
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+           <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropbtn">Produits</button>
+                <div class="dropdown-content">
+                 <b> <a  href="{{path('tous_voiture')}}">Voiture</a>
+                  <a  href="{{path('tous_chaussure')}}">Chaussure</a>
+                  <a  href="{{path('tous_vetement')}}">Vetement</a></b>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="{{path('fos_user_security_login')}}" style='color:white' >Se connecté</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<form action="{{ path('fos_user_registration_register') }}" method='POST' style="border:1px solid #ccc" name='fos_user_registration_form'>
+    <div class="container">
+    <h1 style='margin-top:100px'>INSCRIPTION</h1>
+    <hr>
+   
+
+    <div class='form-group'>
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Entrer votre email" name="fos_user_registration_form[email]" required><br>
+            {% for errorItem in form.email.vars.errors %} 
+            <span class="help-inline">{{ errorItem.message }}</span> 
+            {% endfor %} 
+    </div>
+
+  
+    
+     <div class='form-group'>
+        <label><b>Nom d'utilisateur</b></label>
+        <input type="text" placeholder="Entrer nom d'utilisateur" name="fos_user_registration_form[username]" required><br>
+            {% for errorItem in form.username.vars.errors %} 
+                <span class="help-inline">{{ errorItem.message }}</span> 
+            {% endfor %} 
+    </div>
+
+    
+    
+    <div class="form-group"> 
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer votre mot de passe" name="fos_user_registration_form[plainPassword][first]" required><br>
+            {% for errorItem in form.plainPassword.first.vars.errors %} 
+            <span class="help-inline">{{ errorItem.message }}</span> 
+            {% endfor %} 
+    </div> 
+    <div class="form-group"> 
+        <label><b>Confirmation mot de passe</b></label>
+        <input type="password" placeholder="Entrer votre mot de passe" name="fos_user_registration_form[plainPassword][second]" required><br>
+            {% for errorItem in form.plainPassword.second.vars.errors %} 
+            <span class="help-inline">{{ errorItem.message }}</span> 
+            {% endfor %} 
+    </div> 
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Se souvenir de moi
+    </label>
+    
+  {{ form_rest(form) }}
+
+     <p>En créant un compte, vous acceptez notre <a href="#" style="color:dodgerblue">condition  & Confidentialité</a>.</p>
+  
+    <div class="clearfix">
+      <button type="submit" class="signupbtn"> S'inscrire</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+easy_admin:
+    site_name: 'PRODUIT MAGASIN'
+    design:
+        menu:
+            - { entity: 'Vetement', label: 'Vetements', params:{ action: 'list' }, icon: 'eye' }
+           
+    entities:
+        Vetement:
+            class: VetementBundle\Entity\Vetement
+            label: 'Vetement'
+            list:
+                actions: ['new', 'edit', 'show','delete']
+                title: "Les vetements sur le site"
+                # help: '' # message d'aide à rajouter si besoin
+                fields: 
+                    - { property: 'image', type: 'image', base_path: 'uploads/image/products/' }
+                    - { property: 'libelle', label: 'Libelle' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Proprietaire' }
+                    - { property: 'marque', label: 'Marque' }
+                    - { property: 'description', label: 'Caracteristique'}
+
+            new:
+                title: 'Création de Vetement'
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'libelle', label: 'Libelle' }
+                    - { property: 'prix', label: 'Argent' }
+                    - { property: 'proprietaire', label: 'Proprietaire' }
+                    - { property: 'marque', label: 'Marque' }
+                    - { property: 'description', label: 'Caracteristique' }
+
+                    
